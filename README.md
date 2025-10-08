@@ -64,6 +64,7 @@ pip install pyinstaller
 ```
 
 D. Simple one-file executable (no bundled PDF)
+
 Command Prompt
 ```bash
 pyinstaller --onefile --noconsole your_script.py
