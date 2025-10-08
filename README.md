@@ -18,7 +18,7 @@ Presents a believable _ “salary report” PDF_ and logs a timestamped access e
 
 ## **Installation & Implementation Guide (CODE#1)**
 
--This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. 
+ -This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. 
 
 -Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
 
@@ -148,7 +148,9 @@ When run, it opens a fake/decoy PDF (if present) and sends an email alert to a c
 ## **Installation & Implementation Guide (CODE#2)**
 
 - This guide shows how to place CODE#2 on a machine so it behaves as a decoy: it opens a dummy credentials PDF and sends an email alert. Only deploy on machines you own or where you have explicit written permission. Misuse of deception or alerting tools can be illegal or violate policy.
+  
 - CODE#2 is a defensive decoy script that mimics a sensitive credentials file (e.g., Updated_Credentials.pdf).
+  
 - When run, it opens a fake/decoy PDF (if present) and sends an email alert to a configured address with minimal metadata (timestamp, username, hostname, decoy filename). It’s intended for classroom demos and low‑risk detection of unauthorized local access.
 
 **Overview**
