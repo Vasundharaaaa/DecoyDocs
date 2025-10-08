@@ -259,6 +259,14 @@ Confirm:
 - PDF won’t open: if bundled, confirm `--add-data` and `sys._MEIPASS` usage; if external, ensure PDF is beside the exe.  
 - AV flags exe: test in isolated environments and consult security if needed.
 
-This project is licensed under the MIT License.
+---
+
+## 📜 License
+This project is under a custom license that allows personal and educational use only. Public forks and redistribution are prohibited without permission explicitly from me !
+
+---
+
+## 🙌 Credits
+Developed by *Vasuntthara*
 
 Created by Vasuntthara
