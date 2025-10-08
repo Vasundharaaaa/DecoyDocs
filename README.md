@@ -16,9 +16,8 @@ Presents a believable _ “salary report” PDF_ and logs a timestamped access e
 - Appends a readable log entry (Date/Time, Accessed By (username), Device Name, Public IP placeholder, Location forced to Coimbatore/Tamil Nadu/India, OS) to access_log.txt inside the logs folder.
 - Attempts to open the fake PDF with the OS default viewer (so the interaction appears normal).
 
-**DecoyDocs** — Installation & Implementation Guide 
-
-- This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
+  ## **Installation & Implementation Guide (CODE#2)**
+  - This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
 
 **Overview**
 
@@ -143,7 +142,7 @@ When run, it opens a fake/decoy PDF (if present) and sends an email alert to a c
 - Optionally writes a local log entry (if configured in the script).
 - Email credentials and recipient are read from environment variables (keeps secrets out of the repo)
 
-**Installation & Implementation Guide (CODE#2)**
+## **Installation & Implementation Guide (CODE#2)**
 
 - This guide shows how to place CODE#2 on a machine so it behaves as a decoy: it opens a dummy credentials PDF and sends an email alert. Only deploy on machines you own or where you have explicit written permission. Misuse of deception or alerting tools can be illegal or violate policy.
 - CODE#2 is a defensive decoy script that mimics a sensitive credentials file (e.g., Updated_Credentials.pdf).
@@ -261,11 +260,11 @@ Confirm:
 
 ---
 
-## 📜 License
+## License
 This project is under a custom license that allows personal and educational use only. Public forks and redistribution are prohibited without permission explicitly from me !
 
 ---
 
-## 🙌 Credits
+## Credits
 
 Created by Vasuntthara
