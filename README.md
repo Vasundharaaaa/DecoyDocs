@@ -267,6 +267,5 @@ This project is under a custom license that allows personal and educational use 
 ---
 
 ## 🙌 Credits
-Developed by *Vasuntthara*
 
 Created by Vasuntthara
