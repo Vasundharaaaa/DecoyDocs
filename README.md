@@ -18,9 +18,9 @@ Presents a believable _ “salary report” PDF_ and logs a timestamped access e
 
 ## **Installation & Implementation Guide (CODE#1)**
 
- -This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. 
+- This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. 
 
--Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
+- Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
 
 **Overview**
 
