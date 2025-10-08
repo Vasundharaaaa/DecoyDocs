@@ -16,8 +16,10 @@ Presents a believable _ “salary report” PDF_ and logs a timestamped access e
 - Appends a readable log entry (Date/Time, Accessed By (username), Device Name, Public IP placeholder, Location forced to Coimbatore/Tamil Nadu/India, OS) to access_log.txt inside the logs folder.
 - Attempts to open the fake PDF with the OS default viewer (so the interaction appears normal).
 
-  ## **Installation & Implementation Guide (CODE#2)**
-  - This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
+## **Installation & Implementation Guide (CODE#2)**
+
+-This short guide shows one safe way to place the CODE#1 script on a machine so it behaves as a decoy: it looks like a sensitive file, opens a fake salary PDF when clicked, and writes an access log to a logs folder. 
+-Only deploy on machines you own or where you have explicit written permission. Misuse of deception tools may be illegal or violate policy.
 
 **Overview**
 
