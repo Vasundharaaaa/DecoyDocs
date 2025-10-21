@@ -1,85 +1,54 @@
-import smtplib
-import requests
-import platform
-import socket
 import os
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from datetime import datetime
+import socket
+import datetime
+import getpass
+import platform
+import subprocess
+import sys
 
-# ===== YOUR EMAIL SETTINGS =====
-SENDER_EMAIL = "decoyalerts18@gmail.com"
-APP_PASSWORD = "enrm dpec loki rhrk"   # Your Google App Password
-RECEIVER_EMAIL = "decoyalerts18@gmail.com"  # You can use same or different email
+# -------- Paths --------
+fake_file = os.path.join(os.getcwd(), "SalaryReport.pdf")  # PDF name
+desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+logs_folder = os.path.join(desktop_path, "logs")
+os.makedirs(logs_folder, exist_ok=True)
+log_file = os.path.join(logs_folder, "access_log.txt")
 
-# ===== PATH TO DUMMY PDF =====
-DUMMY_PDF = r"C:\Users\VASUNDHARA\Desktop\Credentials\AWS_Credentials.pdf"
+# ----- System Info -----
+username = getpass.getuser()
+hostname = socket.gethostname()
+date_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+os_info = f"{platform.system()} {platform.release()}"
 
+# ----- Force Location to Coimbatore -----
+city = "Coimbatore"
+region = "Tamil Nadu"
+country = "India"
+public_ip = "127.0.0.1"  # Optional: you can keep actual public IP if needed
+location = f"{city}, {region}, {country}"
 
-def get_system_info():
-    """Collect IP, location, and device details"""
-    try:
-        # Get Public IP
-        ip = requests.get("https://api.ipify.org?format=json").json()["ip"]
+# ----- Write Log -----
+log_entry = f"""
+Date/Time   : {date_time}
+Accessed By : {username}
+Device Name : {hostname}
+Public IP   : {public_ip}
+Location    : {location}
+OS          : {os_info}
+----------------------------------------
+"""
+with open(log_file, "a") as f:
+    f.write(log_entry)
 
-        # Get Location
-        location_data = requests.get(f"https://ipapi.co/{ip}/json/").json()
-        city = location_data.get("city", "Unknown")
-        region = location_data.get("region", "Unknown")
-        country = location_data.get("country_name", "Unknown")
+print("[+] Access logged at:", log_file)
 
-        # Device Info
-        device = platform.platform()
-        hostname = socket.gethostname()
-
-        return ip, f"{city}, {region}, {country}", device, hostname
-
-    except Exception as e:
-        return "Unknown", "Unknown", "Unknown", str(e)
-
-
-def send_email():
-    """Send alert email with system info"""
-    ip, location, device, hostname = get_system_info()
-    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    subject = "🚨 ALERT: Decoy File Accessed 🚨"
-    body = f"""
-    Alert! Someone tried to open the decoy file.
-
-    📅 Time: {current_time}
-    🌍 Location: {location}
-    💻 Device: {device}
-    🖥️ Hostname: {hostname}
-    🌐 IP Address: {ip}
-    """
-
-    msg = MIMEMultipart()
-    msg["From"] = SENDER_EMAIL
-    msg["To"] = RECEIVER_EMAIL
-    msg["Subject"] = subject
-    msg.attach(MIMEText(body, "plain"))
-
-    try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login(SENDER_EMAIL, APP_PASSWORD)
-        server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, msg.as_string())
-        server.quit()
-        print("✅ Alert email sent successfully!")
-    except Exception as e:
-        print(f"❌ Failed to send email: {e}")
-
-
-def open_dummy_pdf():
-    """Open dummy PDF so attacker sees it"""
-    try:
-        os.startfile(DUMMY_PDF)  # Works on Windows
-        print("📄 Dummy PDF opened.")
-    except Exception as e:
-        print(f"❌ Could not open PDF: {e}")
-
-
-if __name__ == "__main__":
-    send_email()
-    open_dummy_pdf()
+# ----- Open Fake PDF -----
+if os.path.exists(fake_file):
+    if sys.platform.startswith("win"):
+        os.startfile(fake_file)
+    elif sys.platform.startswith("darwin"):
+        subprocess.Popen(["open", fake_file])
+    else:
+        subprocess.Popen(["xdg-open", fake_file])
+    print("[+] Fake Salary Report opened.")
+else:
+    print("[-] SalaryReport.pdf not found — place it in the script folder.")
