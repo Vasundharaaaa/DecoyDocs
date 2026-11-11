@@ -13,7 +13,7 @@ Presents a believable _ “salary report” PDF_ and logs a timestamped access e
 
 - Looks for SalaryReport.pdf in the same folder where the script is run.
 - Creates a logs folder on the current account’s Desktop (if missing).
-- Appends a readable log entry (Date/Time, Accessed By (username), Device Name, Public IP placeholder, Location forced to Coimbatore/Tamil Nadu/India, OS) to access_log.txt inside the logs folder.
+- Appends a readable log entry (Date/Time, Accessed By (username), Device Name, Public IP placeholder, Location to access_log.txt inside the logs folder.
 - Attempts to open the fake PDF with the OS default viewer (so the interaction appears normal).
 
 ## **Installation & Implementation Guide (CODE#1)**
